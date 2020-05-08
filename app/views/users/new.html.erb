@@ -1,0 +1,46 @@
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Register</h1>
+    <p class="lead">Please register with an e-mail & password</p>
+  </div>
+</div>
+
+<div class="form-group">
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+
+  <%= label_tag '* e-mail ' %>
+  <%= text_field_tag 'email', nil, class: "form-control" %>
+  <br /> <br />
+
+  <%= label_tag ' * Password ' %>
+  <%= text_field_tag 'password_digest', nil, class: "form-control" %>
+  <br /> <br />
+
+  <%= label_tag 'First name ' %>
+  <%= text_field_tag 'first_name', nil, class: "form-control" %>
+  <br /> <br />
+
+  <%= label_tag 'Last name ' %>
+  <%= text_field_tag 'last_name', nil, class: "form-control" %>
+  <br /> <br />
+  
+  <%= label_tag 'Description ' %>
+  <%= text_area_tag 'description', nil, class: "form-control" %>
+  <br /> <br />
+  
+  <%= label_tag 'Age ' %>
+  <%= text_field_tag 'age', nil, class: "form-control" %>
+  <br /> <br />
+
+  <select class="field-tag form-item select-tag" name="city">
+  <% City.all.each do |city| %>
+  <option value="<%= city.id %>"><%= city.name %></option>
+  <% end %>
+  </select>
+
+  <%= submit_tag "Go", class: "btn btn-secondary " %>
+
+<% end %>
+
+</div>

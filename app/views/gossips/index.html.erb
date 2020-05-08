@@ -1,15 +1,15 @@
+
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">Derniers ragôts !</h1>
-    <p class="lead">Regardez ce qui se dit sur vous...</p>
+    <h1 class="display-4">The last gossips !</h1>
+    <p class="lead">Check what's going on..</p>
   </div>
 </div>
 
-<%= link_to "Nouveau potin", new_gossip_path, class: "btn btn-secondary bg-info'" %>
-
+<%= link_to "Want to add a gossip ?", new_gossip_path, class: "btn btn-outline-secondary btn-block" %>
+<br/>
 <div class="d-flex justify-content-around align-items-center flex-wrap">
 	<% @gossip.each_with_index do |g,id| %>
-
 	<div class="card mt-3 mb-3" style="width: 18rem;">
 		<div class="card-header">
 			<h5 class="card-title"><%=g.title%></h5>
@@ -20,10 +20,9 @@
 			<p class="card-text"><%=g.content[0..100] %>...</p>
 		</div>
 		<div class="card-footer">
-			<%= link_to 'Lire la suite', gossip_path(id+1), { :class=>"card-link" } %>
+			<%= link_to 'Read more..', gossip_path(:id => g.id), { :class=>"card-link" } %>
 		</div>
 	</div>
-
 	<% end %>
 </div>
 

@@ -1,0 +1,24 @@
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">The gossips from <%= @city.name %> !</h1>
+    <p class="lead">Check what's going on there..</p>
+  </div>
+</div>
+
+<% @city.users.each do |user| %>
+  <div class="card mt-3">
+		<div class="card-header">
+			<h4 class="card-title"> <%= user.first_name %>  <%= user.last_name %> </h4>
+		</div>
+		<% user.gossips.each do |gossip| %>
+			<div class="card-body">
+				<p class="card-text"><%= gossip.title %></p>
+				<p class="card-text"><%= gossip.content %></p>
+			</div>
+		<% end %>
+		<div class="card-footer">
+			<a class="card-link" href=#> Email : <%= user.email %> </a>
+		</div>
+	</div>
+<% end %>

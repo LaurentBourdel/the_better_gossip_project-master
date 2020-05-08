@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'users/show'
+  #get 'cities/show'
+  #get 'users/show'
   root 'gossips#index'
   get 'team', to: 'static_pages#home'
   get 'contact', to: 'static_pages#contact'
@@ -8,4 +9,6 @@ Rails.application.routes.draw do
   #get 'users/:id', to: 'static_pages#user', as: 'user'
   resources :gossips
   resources :users
+  resources :cities
+  resources :sessions, only: [:new, :create, :destroy]
 end
